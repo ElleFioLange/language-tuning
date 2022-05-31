@@ -1,6 +1,8 @@
 import { useMIDI, useMIDIMessage } from "@react-midi/hooks";
 import { useEffect, useState } from "react";
 import "./App.css";
+import embeddings from "./embeddings.json";
+import sentences from "./sentences.json";
 
 const characters =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .?!";
@@ -40,7 +42,7 @@ function App() {
 
   useEffect(() => {
     if (status === "idle") {
-      handleTest();
+      // handleTest();
       console.log("generate");
     } else {
       setTimeout(() => {
@@ -59,15 +61,10 @@ function App() {
     }
   }, [current, destination, status]);
 
-  const handleTest = () => {
-    const length = Math.ceil(Math.random() * 6 + 6);
-    let result = "";
-    for (var i = 0; i < length; i++) {
-      result += randomChar();
-    }
+  // const getDest = () => {
 
-    setDestination(result);
-  };
+  //   setDestination(result);
+  // }
 
   const moveTowardsDest = () => {
     let cur = current;
@@ -118,9 +115,6 @@ function App() {
       <p className="text">{current}</p>
       <br />
       <p className="text">{controls}</p>
-      <button className="test-button" onClick={handleTest}>
-        test
-      </button>
     </div>
   );
 }

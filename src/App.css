@@ -15,10 +15,3 @@
   text-align: center;
   line-break: anywhere;
 }
-
-.test-button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 2rem;
-}
